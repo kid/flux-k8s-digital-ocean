@@ -1,14 +1,59 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: podinfo
   namespace: production
+  labels:
+    app: podinfo
   annotations:
-    flux.weave.works/tag.podinfod: semver:~1.3
+    flux.weave.works/tag.podinfod: semver:~1.5
     flux.weave.works/automated: 'true'
 spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: podinfo
   template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+      labels:
+        app: podinfo
     spec:
       containers:
       - name: podinfod
-        image: arnaudrebts/k8s-podinfo:1.3.0
+        image: arnaudrebts/k8s-podinfo:v1.5.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9898
+          name: http
+          protocol: TCP
+        command:
+        - ./podinfo
+        - --port=9898
+        - --level=info
+        - --random-delay=false
+        - --random-error=false
+        env:
+        - name: PODINFO_UI_COLOR
+          value: blue
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 9898
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 9898
+        resources:
+          limits:
+            cpu: 2000m
+            memory: 512Mi
+          requests:
+            cpu: 10m
+            memory: 64Mi
