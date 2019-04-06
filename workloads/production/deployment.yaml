@@ -26,7 +26,7 @@ spec:
         app: podinfo
     spec:
       containers:
-      - name: podinfod
+      - name: podinfo
         image: arnaudrebts/k8s-podinfo:v1.5.0
         imagePullPolicy: IfNotPresent
         ports:
