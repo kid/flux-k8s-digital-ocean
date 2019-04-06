@@ -4,8 +4,6 @@ kind: StatefulSet
 metadata:
   name: marketstore
   namespace: staging
-labels:
-  app: marketstore
 spec:
   selector:
     matchLabels:
