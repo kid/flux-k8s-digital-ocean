@@ -24,7 +24,7 @@ spec:
         ports:
         - name: api
           containerPort: 5993
-        volumes:
+        volumeMounts:
         - name: data
           mountPath: /data
   volumeClaimTemplates:
