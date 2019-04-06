@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: marketstore
+  namespace: staging
+labels:
+  app: marketstore
+spec:
+  selector:
+    matchLabels:
+      app: marketstore
+  serviceName: marketstore
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: marketstore
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: marketstore
+        image: alpacamarkets/marketstore:v3.2.6
+        ports:
+        - name: api
+          containerPort: 5993
+        volumes:
+        - name: data
+          mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: www
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      storageClassName: do-block-storage
+      resources:
+        requests:
+          storage: 1Gi
