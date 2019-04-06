@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: podinfod
-        image: stefanprodan/myapp:master-5a872e3
+        image: arnaudrebts/k8s-podinfo:master-25a4076
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9898
