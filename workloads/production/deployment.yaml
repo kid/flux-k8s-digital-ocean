@@ -8,7 +8,7 @@ metadata:
     flux.weave.works/automated: 'true'
 spec:
   template:
-   spec:
+    spec:
       containers:
       - name: podinfod
         image: arnaudrebts/k8s-podinfo:1.3.0
