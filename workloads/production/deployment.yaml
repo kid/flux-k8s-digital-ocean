@@ -9,6 +9,8 @@ metadata:
   annotations:
     flux.weave.works/tag.podinfod: semver:~1.5
     flux.weave.works/automated: 'true'
+    flux.weave.works/locked_user: Arnaud Rebts <arnaud.rebts@gmail.com>
+    flux.weave.works/locked: 'true'
 spec:
   replicas: 1
   strategy:
