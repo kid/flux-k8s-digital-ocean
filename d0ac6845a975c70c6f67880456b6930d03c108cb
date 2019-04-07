@@ -1,0 +1,1 @@
+{"jobID":"f5368137-1d8d-b18e-ec1d-393e1e975e0c","spec":{"type":"policy","cause":{"Message":"","User":"Arnaud Rebts \u003carnaud.rebts@gmail.com\u003e"},"spec":{"production:deployment/podinfo":{"add":{"locked":"true","locked_msg":"","locked_user":"Arnaud Rebts \u003carnaud.rebts@gmail.com\u003e"},"remove":{}}}},"result":null}
