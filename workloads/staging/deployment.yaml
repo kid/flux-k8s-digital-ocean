@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: podinfo
-        image: arnaudrebts/k8s-podinfo:v1.6.0
+        image: arnaudrebts/k8s-podinfo:v1.7.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9898
