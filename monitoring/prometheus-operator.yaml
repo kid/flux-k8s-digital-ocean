@@ -6,6 +6,7 @@ metadata:
 spec:
   releaseName: prometheus-operator
   chart:
-    name: stable/prometheus-operator
+    repository: stable
+    name: prometheus-operator
     version: 5.0.7
   values: {}
