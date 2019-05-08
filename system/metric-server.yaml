@@ -1,0 +1,12 @@
+apiVersion: flux.wave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: metric-server
+  namespace: kube-system
+spec:
+  releaseName: metric-server
+  cahrt:
+    repository: https://kubernetes-charts.storage.googleapis.com
+    name: metric-server
+    version: 2.7.1
+  values: {}
